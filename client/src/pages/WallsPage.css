@@ -1,0 +1,146 @@
+.walls-page { min-height: 100vh; background: #080808; color: #fff; }
+
+/* Hero */
+.walls-hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  background: radial-gradient(ellipse at 50% 60%, rgba(26,74,122,0.2) 0%, transparent 65%), #080808;
+  overflow: hidden;
+}
+.walls-hero__grain {
+  position: absolute; inset: 0; pointer-events: none; opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+.walls-hero__content { position: relative; text-align: center; padding: 2rem; max-width: 700px; z-index: 1; }
+.walls-hero__eyebrow {
+  display: inline-block; font-size: 0.7rem; letter-spacing: 0.35em;
+  text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.1); padding: 0.35rem 1rem; border-radius: 2px;
+}
+.walls-hero__title {
+  font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.5rem, 9vw, 8rem);
+  line-height: 0.95; letter-spacing: 0.03em; color: #fff; margin: 0 0 1.5rem;
+}
+.walls-hero__title em { font-style: normal; color: rgba(255,255,255,0.3); }
+.walls-hero__sub { font-size: 1rem; color: rgba(255,255,255,0.4); line-height: 1.7; margin: 0 0 3rem; }
+.walls-hero__stats { display: flex; align-items: center; justify-content: center; gap: 2rem; }
+.walls-hero__stat  { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
+.walls-hero__stat-val { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: #fff; line-height: 1; }
+.walls-hero__stat-key { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+.walls-hero__divider  { width: 1px; height: 40px; background: rgba(255,255,255,0.1); }
+.walls-hero__scroll   { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); }
+.walls-hero__scroll span {
+  display: block; width: 1px; height: 60px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
+
+/* Diagram */
+.walls-diagram-wrap {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 5rem 2rem 4rem;
+}
+.walls-diagram__label-top {
+  font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: rgba(255,255,255,0.2); margin-bottom: 3rem;
+}
+.walls-diagram {
+  display: flex; align-items: center; justify-content: center;
+}
+.walls-diagram__ring {
+  border-radius: 50%; display: flex;
+  align-items: center; justify-content: center;
+  position: relative; flex-direction: column;
+}
+.walls-diagram__ring--maria {
+  width: 360px; height: 360px;
+  border: 5px solid rgba(139,32,32,0.7);
+  box-shadow: 0 0 40px rgba(139,32,32,0.2), inset 0 0 40px rgba(139,32,32,0.05);
+}
+.walls-diagram__ring--rose  {
+  width: 240px; height: 240px;
+  border: 5px solid rgba(107,107,42,0.7);
+  box-shadow: 0 0 30px rgba(107,107,42,0.2), inset 0 0 30px rgba(107,107,42,0.05);
+}
+.walls-diagram__ring--sina  {
+  width: 130px; height: 130px;
+  border: 5px solid rgba(26,74,122,0.7);
+  box-shadow: 0 0 20px rgba(26,74,122,0.25), inset 0 0 20px rgba(26,74,122,0.1);
+}
+.walls-diagram__ring-label {
+  position: absolute; top: -28px;
+  font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); white-space: nowrap;
+}
+.walls-diagram__center {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+}
+.walls-diagram__center-text { font-size: 0.6rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.4); text-transform: uppercase; }
+.walls-diagram__center-sub  { font-size: 0.5rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.2); text-transform: uppercase; }
+
+/* Cards */
+.walls-cards-wrap {
+  display: flex; flex-direction: column; gap: 1px;
+  max-width: 860px; margin: 0 auto; padding: 2rem 2rem;
+}
+.wall-card {
+  display: flex; border-radius: 4px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.07);
+  background: #0d0d0d;
+  transition: border-color 0.25s, transform 0.25s;
+  margin-bottom: 1.5rem;
+}
+.wall-card:hover { border-color: rgba(255,255,255,0.18); transform: translateX(4px); }
+.wall-card__accent { width: 3px; background: var(--w-color); flex-shrink: 0; }
+.wall-card__inner  { padding: 2rem; flex: 1; }
+
+.wall-card__top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+.wall-card__status {
+  display: inline-block; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 0.2rem 0.6rem; border-radius: 2px; margin-bottom: 0.5rem;
+}
+.wall-card__status.breached { background: rgba(139,32,32,0.2); color: #ff8a8a; }
+.wall-card__status.intact   { background: rgba(30,90,30,0.2);  color: #7dffaa; }
+
+.wall-card__name {
+  font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem;
+  letter-spacing: 0.05em; color: #fff; margin: 0 0 0.25rem; line-height: 1;
+}
+.wall-card__year { font-size: 0.65rem; letter-spacing: 0.2em; color: rgba(255,255,255,0.25); text-transform: uppercase; }
+.wall-card__badge {
+  font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.1);
+  padding: 0.25rem 0.65rem; border-radius: 2px; white-space: nowrap;
+}
+
+.wall-card__stats {
+  display: flex; gap: 0; margin-bottom: 1.5rem;
+  background: rgba(255,255,255,0.02); border-radius: 3px; overflow: hidden;
+}
+.wall-card__stat { flex: 1; padding: 1rem; text-align: center; }
+.wall-card__stat-val { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: #fff; line-height: 1; }
+.wall-card__stat-key { display: block; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-top: 0.25rem; }
+.wall-card__stat-divider { width: 1px; background: rgba(255,255,255,0.06); }
+
+.wall-card__desc { font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.8; margin: 0 0 1.5rem; }
+.wall-card__districts-label { display: block; font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 0.6rem; }
+.wall-card__district-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.wall-card__district {
+  font-size: 0.72rem; padding: 0.2rem 0.6rem;
+  border: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.35); border-radius: 2px;
+}
+
+/* Secret */
+.walls-secret {
+  max-width: 700px; margin: 2rem auto 8rem; padding: 2rem;
+  border: 1px solid rgba(139,32,32,0.3); border-radius: 4px;
+  background: rgba(139,32,32,0.05); text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 1rem;
+}
+.walls-secret__icon { font-size: 1.5rem; opacity: 0.5; }
+.walls-secret__text { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height: 1.85; margin: 0; }
+.walls-secret__text em { color: rgba(255,255,255,0.7); font-style: normal; }

@@ -1,0 +1,421 @@
+/* ══════════════════════════════════════════════
+   STORY PAGE
+══════════════════════════════════════════════ */
+
+.story-page {
+  min-height: 100vh;
+  background: #080808;
+  color: #fff;
+}
+
+/* ── Hero ─────────────────────────────────── */
+.story-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at 50% 60%, rgba(139,32,32,0.18) 0%, transparent 65%),
+    #080808;
+  overflow: hidden;
+}
+
+.story-hero__grain {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.story-hero__content {
+  position: relative;
+  text-align: center;
+  padding: 2rem;
+  max-width: 760px;
+  z-index: 1;
+}
+
+.story-hero__eyebrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 0.35rem 1rem;
+  border-radius: 2px;
+}
+
+.story-hero__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  line-height: 0.95;
+  letter-spacing: 0.03em;
+  color: #fff;
+  margin: 0 0 1.5rem;
+}
+.story-hero__title em {
+  font-style: normal;
+  color: rgba(255,255,255,0.35);
+}
+
+.story-hero__sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.7;
+  margin: 0 0 3rem;
+  letter-spacing: 0.02em;
+}
+
+.story-hero__stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.story-hero__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+.story-hero__stat-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 0.05em;
+  color: #fff;
+  line-height: 1;
+}
+.story-hero__stat-key {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+.story-hero__divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255,255,255,0.1);
+}
+
+.story-hero__scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.story-hero__scroll span {
+  display: block;
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+  margin: 0 auto;
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(1); }
+  50%       { opacity: 1;   transform: scaleY(1.1); }
+}
+
+/* ── Season Nav ───────────────────────────── */
+.story-nav {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 4rem 2rem 2rem;
+}
+
+.story-nav__pill {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px;
+  padding: 0.5rem 1.25rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  color: rgba(255,255,255,0.4);
+}
+.story-nav__pill:hover {
+  border-color: var(--s-color);
+  color: #fff;
+}
+.story-nav__pill--active {
+  background: var(--s-color);
+  border-color: var(--s-color);
+  color: #fff;
+}
+
+.story-nav__pill-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+}
+.story-nav__pill-title {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+}
+
+/* ── Seasons ──────────────────────────────── */
+.story-seasons {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 2rem 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.story-season {
+  transition: opacity 0.3s ease;
+}
+.story-season--hidden {
+  display: none;
+}
+
+/* Season header */
+.story-season__header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+}
+.story-season__header::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 80px;
+  height: 1px;
+  background: var(--s-color);
+}
+
+.story-season__meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+.story-season__num {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--s-color);
+}
+.story-season__years {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.25);
+}
+
+.story-season__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  letter-spacing: 0.05em;
+  color: #fff;
+  margin: 0 0 1.25rem;
+  line-height: 1;
+}
+
+.story-season__quote {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.3);
+  font-style: italic;
+  margin: 0;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(255,255,255,0.1);
+  line-height: 1.7;
+}
+
+/* ── Arc Cards ────────────────────────────── */
+.story-arcs {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.story-arc-card {
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 4px;
+  overflow: hidden;
+  background: #0d0d0d;
+  transition: border-color 0.2s ease;
+  margin-bottom: 0.75rem;
+}
+.story-arc-card:hover,
+.story-arc-card--open {
+  border-color: rgba(255,255,255,0.15);
+}
+.story-arc-card--open {
+  background: #111;
+}
+
+.story-arc-card__top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: 1rem;
+}
+
+.story-arc-card__left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.story-arc-card__num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  color: rgba(255,255,255,0.1);
+  letter-spacing: 0.05em;
+  min-width: 2rem;
+  line-height: 1;
+}
+
+.story-arc-card__year {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--s-color);
+  margin-bottom: 0.3rem;
+}
+.story-arc-card__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  color: #fff;
+  margin: 0;
+  line-height: 1;
+}
+
+.story-arc-card__chevron {
+  font-size: 1.5rem;
+  color: rgba(255,255,255,0.3);
+  min-width: 24px;
+  text-align: center;
+  transition: color 0.2s;
+  font-weight: 300;
+}
+.story-arc-card--open .story-arc-card__chevron { color: #fff; }
+
+/* Arc body */
+.story-arc-card__body {
+  padding: 0 2rem 2rem 5.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeDown 0.25s ease;
+}
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.story-arc-card__desc {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.85;
+  margin: 0;
+}
+
+.story-arc-card__consequence {
+  background: rgba(255,255,255,0.03);
+  border-left: 2px solid var(--s-color);
+  padding: 1rem 1.25rem;
+  border-radius: 0 3px 3px 0;
+}
+.story-arc-card__consequence-label {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--s-color);
+  margin-bottom: 0.5rem;
+}
+.story-arc-card__consequence p {
+  font-size: 0.83rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.story-arc-card__characters-label {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 0.6rem;
+}
+.story-arc-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.story-arc-card__tag {
+  font-size: 0.72rem;
+  padding: 0.25rem 0.65rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.45);
+  border-radius: 100px;
+  letter-spacing: 0.05em;
+  transition: border-color 0.2s, color 0.2s;
+}
+.story-arc-card__tag:hover {
+  border-color: rgba(255,255,255,0.3);
+  color: #fff;
+}
+
+/* ── Closing quote ────────────────────────── */
+.story-end {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 4rem 2rem 8rem;
+  text-align: center;
+}
+.story-end__line {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.15), transparent);
+}
+.story-end__quote {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.4;
+  margin: 0;
+  max-width: 600px;
+}
+.story-end__attr {
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+}
+
+/* ── Responsive ───────────────────────────── */
+@media (max-width: 600px) {
+  .story-arc-card__body { padding: 0 1.25rem 1.5rem; }
+  .story-arc-card__top  { padding: 1.25rem; }
+  .story-arc-card__left { gap: 1rem; }
+  .story-arc-card__num  { display: none; }
+  .story-hero__stats    { gap: 1rem; }
+  .story-hero__divider  { height: 25px; }
+}
