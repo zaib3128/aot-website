@@ -12,8 +12,8 @@ const TITANS = [
     height  : '1.7 m',
     color   : '#c4a450',
     desc    : 'Survey Corps soldier. The brave ones who dare to face the giants.',
-    imgH    : 5.8,   
-    imgW    : 5.9,   
+    imgH    : 5.8,
+    imgW    : 5.9,
     img     : '/images/Human.png',
   },
   {
@@ -81,6 +81,29 @@ export default function TitanSize() {
     const section = sectionRef.current
     const sticky  = stickyRef.current
     if (!section || !sticky) return
+
+    // ── Scale down on mobile ──────────────────────
+    const isMobile = window.innerWidth <= 768
+    const scale    = isMobile ? 0.45 : 1
+
+    // Apply scale to all titan images
+    titanRefs.current.forEach((el) => {
+      if (!el) return
+      const img = el.querySelector('.ts-figure-img')
+      if (img) {
+        const originalH = parseFloat(img.style.height)
+        const originalW = parseFloat(img.style.width)
+        img.style.height = `${originalH * scale}vh`
+        img.style.width  = `${originalW * scale}vh`
+      }
+    })
+
+    // Scale measure lines too
+    lineRefs.current.forEach((el) => {
+      if (!el) return
+      const originalH = parseFloat(el.style.height)
+      el.style.height = `${originalH * scale}vh`
+    })
 
     const scrollLen = window.innerHeight * (TITANS.length + 1.5)
     section.style.height = `${scrollLen + window.innerHeight}px`
@@ -162,8 +185,8 @@ export default function TitanSize() {
                   className="ts-figure-img"
                   draggable={false}
                   style={{
-                    height  : `${titan.imgH}vh`,
-                    width   : `${titan.imgW}vh`,
+                    height : `${titan.imgH}vh`,
+                    width  : `${titan.imgW}vh`,
                   }}
                 />
               </div>

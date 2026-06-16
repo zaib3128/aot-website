@@ -13,9 +13,7 @@
   --f-body    : 'IM Fell English', serif;
 }
 
-.ts-section {
-  position : relative;
-}
+.ts-section { position: relative; }
 
 .ts-sticky {
   position   : sticky;
@@ -54,8 +52,8 @@
   inset          : 0;
   background     : radial-gradient(
     ellipse 120% 60% at 50% 100%,
-    rgba(200, 180, 140, 0.18) 0%,
-    rgba(40, 30, 20, 0.5) 50%,
+    rgba(200,180,140,0.18) 0%,
+    rgba(40,30,20,0.5) 50%,
     transparent 100%
   );
   pointer-events : none;
@@ -74,9 +72,9 @@
   animation        : grain-ts 0.1s steps(1) infinite;
 }
 @keyframes grain-ts {
-  0%  { transform: translate(0, 0); }
-  25% { transform: translate(-2%, 3%); }
-  75% { transform: translate(2%, -2%); }
+  0%  { transform: translate(0,0); }
+  25% { transform: translate(-2%,3%); }
+  75% { transform: translate(2%,-2%); }
 }
 
 .ts-header {
@@ -113,7 +111,7 @@
   font-size      : clamp(1.1rem, 3vw, 2.6rem);
   color          : var(--white);
   letter-spacing : 0.04em;
-  text-shadow    : 0 0 60px rgba(155, 26, 26, 0.4);
+  text-shadow    : 0 0 60px rgba(155,26,26,0.4);
 }
 
 .ts-stage {
@@ -148,16 +146,16 @@
   transition      : filter 0.4s;
 }
 .ts-figure:hover {
-  filter :
+  filter:
     drop-shadow(0 0 30px color-mix(in srgb, var(--color) 65%, transparent))
     drop-shadow(0 0 80px color-mix(in srgb, var(--color) 30%, transparent));
 }
 
 .ts-figure-img {
-  object-fit      : contain;
-  object-position : bottom center;
-  display         : block;
-  user-select     : none;
+  object-fit        : contain;
+  object-position   : bottom center;
+  display           : block;
+  user-select       : none;
   -webkit-user-drag : none;
 }
 
@@ -213,6 +211,7 @@
   text-transform : uppercase;
   color          : var(--bone);
 }
+.ts-label-holder { display: none; }
 .ts-label-desc {
   font-family : var(--f-body);
   font-style  : italic;
@@ -220,9 +219,6 @@
   color       : var(--dust);
   line-height : 1.4;
   margin-top  : 3px;
-}
-@media (max-width: 700px) {
-  .ts-label-desc { display: none; }
 }
 
 /* ── Wall Maria reference ────────────────────── */
@@ -234,8 +230,8 @@
   height     : 1px;
   background : repeating-linear-gradient(
     90deg,
-    rgba(196, 164, 80, 0.25) 0px,
-    rgba(196, 164, 80, 0.25) 8px,
+    rgba(196,164,80,0.25) 0px,
+    rgba(196,164,80,0.25) 8px,
     transparent 8px,
     transparent 16px
   );
@@ -248,70 +244,42 @@
   font-family    : var(--f-cinzel);
   font-size      : clamp(0.45rem, 0.75vw, 0.62rem);
   letter-spacing : 0.2em;
-  color          : rgba(196, 164, 80, 0.55);
+  color          : rgba(196,164,80,0.55);
   text-transform : uppercase;
 }
 
-/* ── Responsive ─────────────────────────────── */
-@media (max-width: 480px) {
-  .ts-stage {
-    gap    : 0.6rem;
-    padding: 0 2vw;
-    bottom : 10vh;
-  }
-  .ts-header { gap: 0.8rem; }
-  .ts-header-rule { flex: 0 0 30px; }
-}
-
-/* ── Mobile Fix ───────────────────────────── */
+/* ── Mobile ──────────────────────────────────── */
 @media (max-width: 768px) {
-
-  /* Allow horizontal scroll on mobile */
-  .ts-sticky { overflow-x: auto; overflow-y: hidden; }
-
   .ts-stage {
-    justify-content : flex-start;
-    gap             : clamp(0.5rem, 2vw, 1.5rem);
-    padding         : 0 4vw;
-    min-width       : max-content;
+    gap     : clamp(0.3rem, 1.5vw, 1rem);
+    padding : 0 2vw;
   }
 
-  /* Scale down titan images */
-  .ts-figure-img {
-    height : calc(var(--h) * 0.65) !important;
-    width  : auto !important;
-  }
-
-  /* Smaller labels */
-  .ts-label-height { font-size: 0.55rem; }
-  .ts-label-name   { font-size: 0.5rem; letter-spacing: 0.1em; }
-  .ts-label-holder { display: none; }
-  .ts-label-desc   { display: none; }
-
-  /* Smaller header */
-  .ts-header-title { font-size: 1.2rem; }
+  .ts-header-title { font-size: 1rem; }
   .ts-header-rule  { flex: 0 0 20px; }
 
-  /* Wall label stays visible */
-  .ts-wall-label { font-size: 0.5rem; right: 1vw; }
+  .ts-label-height { font-size: 0.48rem; }
+  .ts-label-name   { font-size: 0.44rem; letter-spacing: 0.08em; }
+  .ts-label-desc   { display: none; }
+  .ts-wall-label   { font-size: 0.45rem; right: 1vw; }
 
-  /* Scroll hint on mobile */
-  .ts-sticky::after {
-    content  : '← scroll →';
-    position : absolute;
-    bottom   : 2vh;
-    left     : 50%;
-    transform: translateX(-50%);
-    font-family: var(--f-cinzel);
-    font-size: 0.55rem;
+  .ts-ground::after {
+    content       : 'scroll to explore';
+    position      : absolute;
+    bottom        : 1.5vh;
+    left          : 50%;
+    transform     : translateX(-50%);
+    font-family   : var(--f-cinzel);
+    font-size     : 0.5rem;
     letter-spacing: 0.3em;
-    color    : rgba(196,164,80,0.4);
-    z-index  : 20;
-    white-space: nowrap;
+    color         : rgba(196,164,80,0.35);
+    white-space   : nowrap;
+    text-transform: uppercase;
   }
 }
 
 @media (max-width: 480px) {
-  .ts-header { gap: 0.5rem; top: 3vh; }
-  .ts-header-title { font-size: 0.95rem; }
+  .ts-header      { gap: 0.5rem; top: 3vh; }
+  .ts-header-title{ font-size: 0.85rem; }
+  .ts-stage       { gap: 0.25rem; }
 }
