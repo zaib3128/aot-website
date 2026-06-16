@@ -145,3 +145,8 @@
   color: #fff;
   border-color: rgba(255,255,255,0.3);
 }
+
+@media (max-width: 768px) {
+  .nf-title { font-size: 2rem; }
+  .nf-code  { font-size: 4rem; }
+}

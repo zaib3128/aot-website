@@ -40,3 +40,9 @@
   margin: 0 auto;
   line-height: 1.7;
 }
+
+/* ── Global Mobile ───────────────────────── */
+@media (max-width: 768px) {
+  .page-title { font-size: 3rem; }
+  .page-sub   { font-size: 0.85rem; }
+}

@@ -107,3 +107,12 @@
   .explore-section__right { flex-direction: row; align-items: center; gap: 1rem; }
   .explore-section__num { font-size: 2rem; }
 }
+
+@media (max-width: 768px) {
+  .explore-hero__title  { font-size: 4rem; }
+  .explore-section      { padding: 1.5rem 1rem; gap: 1rem; }
+  .explore-section__num { font-size: 2rem; }
+  .explore-section__title { font-size: 1.75rem; }
+  .explore-section__desc  { display: none; }
+  .explore-section__stat  { display: none; }
+}

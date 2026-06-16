@@ -118,3 +118,12 @@
   font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
   color: rgba(255,255,255,0.2); margin: 0;
 }
+
+@media (max-width: 768px) {
+  .chronicles-hero__title { font-size: 3.5rem; }
+  .chronicles-timeline    { padding: 1rem 1rem 2rem; }
+  .chronicle-event        { gap: 1rem; }
+  .chronicle-event__card  { padding: 1rem; }
+  .chronicles-filters     { padding: 2rem 1rem 1rem; }
+  .chronicles-timeline__line { left: calc(1rem + 17px); }
+}

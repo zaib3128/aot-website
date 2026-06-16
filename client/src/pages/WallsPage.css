@@ -144,3 +144,13 @@
 .walls-secret__icon { font-size: 1.5rem; opacity: 0.5; }
 .walls-secret__text { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height: 1.85; margin: 0; }
 .walls-secret__text em { color: rgba(255,255,255,0.7); font-style: normal; }
+
+@media (max-width: 768px) {
+  .walls-hero__title   { font-size: 4rem; }
+  .walls-cards-wrap    { padding: 1rem; }
+  .wall-card__inner    { padding: 1.25rem; }
+  .wall-card__name     { font-size: 1.75rem; }
+  .walls-diagram__ring--maria { width: 280px; height: 280px; }
+  .walls-diagram__ring--rose  { width: 185px; height: 185px; }
+  .walls-diagram__ring--sina  { width: 100px; height: 100px; }
+}
