@@ -263,3 +263,55 @@
   .ts-header-rule { flex: 0 0 30px; }
 }
 
+/* ── Mobile Fix ───────────────────────────── */
+@media (max-width: 768px) {
+
+  /* Allow horizontal scroll on mobile */
+  .ts-sticky { overflow-x: auto; overflow-y: hidden; }
+
+  .ts-stage {
+    justify-content : flex-start;
+    gap             : clamp(0.5rem, 2vw, 1.5rem);
+    padding         : 0 4vw;
+    min-width       : max-content;
+  }
+
+  /* Scale down titan images */
+  .ts-figure-img {
+    height : calc(var(--h) * 0.65) !important;
+    width  : auto !important;
+  }
+
+  /* Smaller labels */
+  .ts-label-height { font-size: 0.55rem; }
+  .ts-label-name   { font-size: 0.5rem; letter-spacing: 0.1em; }
+  .ts-label-holder { display: none; }
+  .ts-label-desc   { display: none; }
+
+  /* Smaller header */
+  .ts-header-title { font-size: 1.2rem; }
+  .ts-header-rule  { flex: 0 0 20px; }
+
+  /* Wall label stays visible */
+  .ts-wall-label { font-size: 0.5rem; right: 1vw; }
+
+  /* Scroll hint on mobile */
+  .ts-sticky::after {
+    content  : '← scroll →';
+    position : absolute;
+    bottom   : 2vh;
+    left     : 50%;
+    transform: translateX(-50%);
+    font-family: var(--f-cinzel);
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    color    : rgba(196,164,80,0.4);
+    z-index  : 20;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .ts-header { gap: 0.5rem; top: 3vh; }
+  .ts-header-title { font-size: 0.95rem; }
+}

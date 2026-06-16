@@ -215,3 +215,20 @@
   .hero__ch1, .hero__ch3 { padding-inline: 6vw; }
   .hero__ch3-title span  { -webkit-text-stroke-width: 1px; }
 }
+
+@media (max-width: 768px) {
+  .hero__ch1 { padding: 0 6vw 10vh; }
+  .hero__ch3 { padding-left: 6vw; }
+
+  .hero__ch1-title { font-size: clamp(2rem, 10vw, 3.5rem); }
+  .hero__ch3-title { font-size: clamp(3rem, 16vw, 5rem); }
+  .hero__ch3-title span { -webkit-text-stroke-width: 1px; }
+
+  .hero__ch2-title { font-size: clamp(1rem, 5vw, 2rem); letter-spacing: 0.1em; }
+  .hero__ch2-sub   { font-size: 0.8rem; }
+
+  .hero__ch1-sub { font-size: 0.82rem; max-width: 90%; }
+  .hero__ch3-sub { font-size: 0.82rem; margin-top: 1rem; }
+
+  .hero__eyebrow-txt { font-size: 0.55rem; letter-spacing: 0.18em; }
+}
